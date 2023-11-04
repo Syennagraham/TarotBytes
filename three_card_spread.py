@@ -1,0 +1,123 @@
+import os
+import google.generativeai as palm
+import random
+from rich.console import Console
+from rich.table import Table
+from rich.markdown import Markdown
+
+# Define your API key as a constant
+API_KEY = os.getenv("PaLM_API_KEY")
+
+# Check if the API key is provided
+if not API_KEY:
+    print("Please provide your PaLM API key.")
+    exit(1)
+
+# Configure the API with your API key
+palm.configure(api_key=API_KEY)
+
+# List available models and select the one with 'generateText' method
+models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
+
+if not models:
+    print("No models with 'generateText' method found.")
+    exit(1)
+
+model = models[0].name
+
+def generate_random_tarot_cards(num_cards=3):
+    tarot_cards = [
+        "The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor",
+        "The Hierophant", "The Lovers", "The Chariot", "Strength", "The Hermit",
+        "Wheel of Fortune", "Justice", "The Hanged Man", "Death", "Temperance",
+        "The Devil", "The Tower", "The Star", "The Moon", "The Sun",
+        "Judgment", "The World", "Ace of Wands", "Two of Wands", "Three of Wands",
+        "Four of Wands", "Five of Wands", "Six of Wands", "Seven of Wands", "Eight of Wands",
+        "Nine of Wands", "Ten of Wands", "Page of Wands", "Knight of Wands", "Queen of Wands",
+        "King of Wands", "Ace of Cups", "Two of Cups", "Three of Cups", "Four of Cups",
+        "Five of Cups", "Six of Cups", "Seven of Cups", "Eight of Cups", "Nine of Cups",
+        "Ten of Cups", "Page of Cups", "Knight of Cups", "Queen of Cups", "King of Cups",
+        "Ace of Swords", "Two of Swords", "Three of Swords", "Four of Swords", "Five of Swords",
+        "Six of Swords", "Seven of Swords", "Eight of Swords", "Nine of Swords", "Ten of Swords",
+        "Page of Swords", "Knight of Swords", "Queen of Swords", "King of Swords",
+        "Ace of Pentacles", "Two of Pentacles", "Three of Pentacles", "Four of Pentacles",
+        "Five of Pentacles", "Six of Pentacles", "Seven of Pentacles", "Eight of Pentacles",
+        "Nine of Pentacles", "Ten of Pentacles", "Page of Pentacles", "Knight of Pentacles",
+        "Queen of Pentacles", "King of Pentacles"
+    ]
+    
+    return random.sample(tarot_cards, num_cards)
+
+def generate_tarot_reading(cards):
+    console = Console()
+    
+    # Create a table for the tarot cards and positions
+    print()
+    table = Table(title="Tarot Card Reading")
+    table.add_column("Position", style="bold")
+    table.add_column("Card")
+
+    # Define the positions
+    positions = [
+        "The Past",
+        "The Present",
+        "The Future"
+    ]
+
+    for i, position in enumerate(positions):
+        if i < len(cards):
+            table.add_row(f"{position}:", cards[i])
+        else:
+            table.add_row(f"{position}:", "No card provided")
+
+    console.print(table)
+    
+    # Use f-strings to create the prompt
+    card_list = ', '.join(cards)
+    prompt = """\n
+    Provide insights and guidance based on these cards in the tarot world. 
+    In addition, please provide a summary and one thing to be grateful for according to the cards.
+    """
+    
+    try:
+        # Generate text
+        completion = palm.generate_text(
+            model=model,
+            prompt=prompt,
+            temperature=0,
+            max_output_tokens=10000,
+        )
+        
+        console.print()
+        console.print("\n[bold magenta]Tarot Reading:[/bold magenta]")
+        console.print()
+        
+        # Format the generated text as Markdown style
+        markdown_output = Markdown(completion.result)
+        console.print(markdown_output)
+
+    except Exception as e:
+        console.print(f"Error: {str(e)}")
+
+if __name__ == "__main__":
+
+    console = Console()
+    console.print("\n[bold magenta]Three Card Spread Layout: [bold magenta]\n")
+    console.print("  ---   ---   ---  ")
+    console.print(" | 1 | | 2 | | 3 | ")
+    console.print("  ---   ---   ---  ")
+
+    # Check if the user wants to generate random cards or enter their own
+    print()
+    choice = input("Do you want to generate random tarot cards (y/n)? ").strip().lower()
+    console = Console()
+    
+    if choice == 'y':
+        num_cards = 3  
+        random_cards = generate_random_tarot_cards(num_cards)
+        console.print(f"Randomly generated tarot cards: {', '.join(random_cards)}")
+        generate_tarot_reading(random_cards)
+    else:
+        user_cards = input("Enter your three tarot cards (comma-separated): ").strip().split(',')
+        generate_tarot_reading(user_cards)
+
