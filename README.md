@@ -5,8 +5,6 @@ The spreads and interpretations are based off of the Rider-Waite Tarot Deck. [Ri
 
 ## Spreads 
 
-## Spreads 
-
 ### The Three-Card Spread
 The Three-Card Tarot Spread is a fundamental and widely used layout in tarot card reading. It consists of drawing three cards from the tarot deck and arranging them in a row. Each card in this spread has a specific significance:
 
@@ -80,7 +78,7 @@ The Relationship Spread, often based on the 9-card Rider-Waite spread, is a spec
 The Relationship Spread is a valuable tool for gaining a deeper understanding of the dynamics between you and your partner. It can help identify areas of alignment and potential areas for growth or improvement. This spread can be particularly useful for those seeking clarity and guidance in their romantic relationships or partnerships.
 
 ## How to use
-Note: These instructions are for a MAC
+Note: These instructions are for a MAC and are perfomed in the MAC terminal 
 1. Create an PaLM API key [PaLM API Key Generator](https://developers.generativeai.google/tutorials/setup)
  2.  Add this key to your bash_profile
     
@@ -108,13 +106,9 @@ Note: These instructions are for a MAC
 
 7.  Now choose your desired spread.
 		
-	For a three-card reading:
+	For example, a three-card reading:
 
 	$ `python3 three_card_spread.py`
-
-	For a celtic cross reading:
-
-	$ `python3 celtic_cross_spread.py`
 
 	The code will show you how to layout your cards in the correct position for the spread and then will ask if you want to your own tarot cards or randomly generated ones. 
 	The output is your very own tarot reading.
