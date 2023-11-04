@@ -1,39 +1,83 @@
 # TarotBytes
 Performs tarot readings using PaLM, Google's large language model.
 
+The spreads and interpretations are based off of the Rider-Waite Tarot Deck. [Rider-Waite Spreads](https://psychiclibrary.com/tarot-card-spreads/)
+
+## Spreads 
+
 ## Spreads 
 
 ### The Three-Card Spread
 The Three-Card Tarot Spread is a fundamental and widely used layout in tarot card reading. It consists of drawing three cards from the tarot deck and arranging them in a row. Each card in this spread has a specific significance:
 
-The First Card: This card represents the past and provides insight into the events, influences, or circumstances that have led up to the current situation or question.
+1. This card represents the past and provides insight into the events, influences, or circumstances that have led up to the current situation or question.
 
-The Second Card: This card represents the present and offers guidance or insights into the current state of affairs or the energies surrounding the situation.
+2. This card represents the present and offers guidance or insights into the current state of affairs or the energies surrounding the situation.
 
-The Third Card: This card represents the future and provides glimpses into potential outcomes, paths, or developments based on the current circumstances and choices made.
+3.  This card represents the future and provides glimpses into potential outcomes, paths, or developments based on the current circumstances and choices made.
 
 ### The Celtic Cross
-The Celtic Cross Tarot Spread is a complex and in-depth layout that provides a comprehensive view of a situation or question. It consists of ten cards arranged in a specific pattern, and each card has a unique role:
 
-1.  The First Card (The Significator): This card represents the person or situation in question and is placed in the center of the spread.
+The Celtic Cross Tarot Spread is a complex and comprehensive layout in tarot card reading, consisting of ten cards arranged in a specific pattern. Each card in this spread has a distinct significance:
+
+1. Your Current Situation: This card represents your present circumstances or the central issue you're facing, providing insight into what's currently happening in your life.
+
+2. Obstacles or Challenges: This card highlights potential hurdles, difficulties, or obstacles that you may encounter as you navigate your current situation.
+
+3. Potential Opportunities: This card reveals opportunities or positive aspects that can arise from your current circumstances, offering guidance on how to make the most of them.
+
+4. Foundation of the Situation: This card delves into the underlying factors or roots of your situation, helping you understand the core elements at play.
+
+5. The Past: This card offers insights into past events or influences that have contributed to your current situation, shedding light on how you got here.
+
+6. The Future: This card provides glimpses into potential outcomes and developments based on your current path and choices.
+
+7. Your Attitude Towards the Situation: This card reflects your attitude, feelings, or approach to the situation, helping you understand your own perspective.
+
+8. Other People’s Attitudes: This card explores how others may perceive or influence the situation, offering insights into external perspectives or influences.
+
+9. Your Hopes and Fears: This card reveals your hopes and fears related to the situation, helping you acknowledge and address your inner desires and concerns.
+
+10. The Likely Outcome: This final card provides an indication of the most probable outcome or resolution based on the current circumstances and choices made.
+
+
+### Relationship Spread
+The Relationship Spread, often based on the 9-card Rider-Waite spread, is a specialized layout designed to provide insights into the dynamics of a romantic relationship or partnership. Each card in this spread has a specific role:
+
+ 1. How You View Your Partner: This card reflects your perspective on
+    your partner and how you perceive them in the relationship.
     
-2.  The Second Card (The Crossing Card): This card is laid across the first card and represents challenges or obstacles the individual or situation is facing.
+ 2. How Your Partner Views You: This card represents your partner's
+    perspective on you and their perception of your role in the
+    relationship.
     
-3.  The Third Card (The Foundation): This card represents the past influences or events that have led to the current situation.
+   3. Your Needs: This card reveals your emotional, physical, or
+    psychological needs within the relationship.
     
-4.  The Fourth Card (The Recent Past): This card sheds light on recent events or influences that are affecting the present.
+4. Your Partner's Needs: This card shows your partner's needs, desires,
+    or expectations within the relationship.
     
-5.  The Fifth Card (The Crown): This card represents the current state of affairs and what is currently on the individual's mind.
+5. Current State of Relationship: This card provides insights into the
+    present state of your relationship, including its strengths and
+    challenges.
     
-6.  The Sixth Card (The Near Future): This card provides insights into the near future and what is likely to occur in the coming weeks or months.
+6. The Path You Would Like Your Relationship to Follow: This card
+    indicates your desires and intentions for the future of the
+    relationship.
     
-7.  The Seventh Card (The Self): This card reflects the individual's attitude, feelings, and approach to the situation.
+7. The Path Your Partner Would Like to See Your Relationship Follow:
+    This card represents your partner's hopes and aspirations for the
+    future of the relationship.
     
-8.  The Eighth Card (External Influences): This card signifies external factors, such as people or events, that may impact the situation.
+8. Aspects of Your Relationship to Consider: This card highlights
+    important aspects or themes within your relationship that you should
+    pay attention to.
     
-9.  The Ninth Card (Hopes and Fears): This card reveals the individual's hopes, fears, or expectations regarding the outcome.
-    
-10.  The Tenth Card (The Outcome): This final card offers insights into the potential outcome of the situation based on current circumstances and choices made.
+9. Question Outcome (If There's a Question): If you have a specific
+    question or concern related to the relationship, this card provides
+    guidance or an answer.
+
+The Relationship Spread is a valuable tool for gaining a deeper understanding of the dynamics between you and your partner. It can help identify areas of alignment and potential areas for growth or improvement. This spread can be particularly useful for those seeking clarity and guidance in their romantic relationships or partnerships.
 
 ## How to use
 Note: These instructions are for a MAC
