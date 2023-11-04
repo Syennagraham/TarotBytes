@@ -1,18 +1,16 @@
 # TarotBytes
 Performs tarot readings using PaLM, Google's large language model.
 
-The spreads and interpretations are based off of the Rider-Waite Tarot Deck. [Rider-Waite Spreads](https://psychiclibrary.com/tarot-card-spreads/)
-
 ## Spreads 
 
 ### The Three-Card Spread
 The Three-Card Tarot Spread is a fundamental and widely used layout in tarot card reading. It consists of drawing three cards from the tarot deck and arranging them in a row. Each card in this spread has a specific significance:
 
-1. This card represents the past and provides insight into the events, influences, or circumstances that have led up to the current situation or question.
+The First Card: This card represents the past and provides insight into the events, influences, or circumstances that have led up to the current situation or question.
 
-2. This card represents the present and offers guidance or insights into the current state of affairs or the energies surrounding the situation.
+The Second Card: This card represents the present and offers guidance or insights into the current state of affairs or the energies surrounding the situation.
 
-3.  This card represents the future and provides glimpses into potential outcomes, paths, or developments based on the current circumstances and choices made.
+The Third Card: This card represents the future and provides glimpses into potential outcomes, paths, or developments based on the current circumstances and choices made.
 
 ### The Celtic Cross
 
@@ -77,16 +75,17 @@ The Relationship Spread, often based on the 9-card Rider-Waite spread, is a spec
 
 The Relationship Spread is a valuable tool for gaining a deeper understanding of the dynamics between you and your partner. It can help identify areas of alignment and potential areas for growth or improvement. This spread can be particularly useful for those seeking clarity and guidance in their romantic relationships or partnerships.
 
+
 ## How to use
 Note: These instructions are for a MAC and are perfomed in the MAC terminal 
 1. Create an PaLM API key [PaLM API Key Generator](https://developers.generativeai.google/tutorials/setup)
  2.  Add this key to your bash_profile
     
-   $ `vi ~/.bash_profile`
+	   $ `vi ~/.bash_profile`
 
-   $ `export PaLM_API_KEY='your-api-key-here'`
+	   $ `export PaLM_API_KEY='your-api-key-here'`
    
-   $ `source ~/.bash_profile`
+	   $ `source ~/.bash_profile`
 
 2. Set up your environment
 	1. Install the latest version of python [python website](https://www.python.org/downloads/)
@@ -104,11 +103,12 @@ Note: These instructions are for a MAC and are perfomed in the MAC terminal
 
 	$ `python -m pip install rich`
 
-7.  Now choose your desired spread.
+7.  Choose your desired spread
 		
 	For example, a three-card reading:
 
 	$ `python3 three_card_spread.py`
 
-	The code will show you how to layout your cards in the correct position for the spread and then will ask if you want to your own tarot cards or randomly generated ones. 
+	The code will show you how to layout your cards in the correct position for the spread and then will ask if you want to your own tarot cards or randomly generated ones. 	
+	
 	The output is your very own tarot reading.
