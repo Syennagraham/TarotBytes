@@ -39,24 +39,37 @@ The Celtic Cross Tarot Spread is a complex and in-depth layout that provides a c
 Note: These instructions are for a MAC
 1. Create an PaLM API key [PaLM API Key Generator](https://developers.generativeai.google/tutorials/setup)
  2.  Add this key to your bash_profile
+    
    $ `vi ~/.bash_profile`
+
    $ `export PaLM_API_KEY='your-api-key-here'`
+   
    $ `source ~/.bash_profile`
 
 2. Set up your environment
 	1. Install the latest version of python [python website](https://www.python.org/downloads/)
 	2. Set up a virtual environment (optional)
+    
 		$ `python -m venv PaLM-env`
+
 		$ `source PaLM-env/bin/activate`
+
 3. Install the PaLM library
+   
 	$ `pip install -q google-generativeai`
-4. Install the python rich library for pretty outputs [rich library](https://github.com/Textualize/rich)
+
+5. Install the python rich library for pretty outputs [rich library](https://github.com/Textualize/rich)
+
 	$ `python -m pip install rich`
-5.  Now choose your desired spread.
+
+7.  Now choose your desired spread.
 		
-	For a three-card reading: 
+	For a three-card reading:
+
 	$ `python3 three_card_spread.py`
+
 	For a celtic cross reading:
+
 	$ `python3 celtic_cross_spread.py`
 
 	The code will show you how to layout your cards in the correct position for the spread and then will ask if you want to your own tarot cards or randomly generated ones. 
