@@ -1,6 +1,6 @@
 import os
-import random
 import google.generativeai as palm
+import random
 from rich.console import Console
 from rich.table import Table
 from rich.markdown import Markdown
@@ -47,92 +47,101 @@ tarot_cards = [
     "Queen of Pentacles", "King of Pentacles"
 ]
 
-def generate_random_tarot_cards(num_cards=10):
+def generate_random_tarot_cards(num_cards):
     return random.sample(tarot_cards, num_cards)
 
-def generate_celtic_cross_reading(cards):
-    positions = [
-        "Your current situation",
-        "Obstacles or challenges",
-        "Potential opportunities",
-        "Foundation of the situation",
-        "The past",
-        "The future",
-        "Your attitude towards the situation",
-        "Other people’s attitudes",
-        "Your hopes and fears",
-        "The likely outcome"
-    ]
-
+def generate_relationship_tarot_reading(cards):
     console = Console()
-    console.print()
-    table = Table(title="Celtic Cross Tarot Spread Reading")
+    
+    # Create a table for the tarot cards and positions
+    print()
+    table = Table(title="Relationship Tarot Card Reading")
     table.add_column("Position", style="bold")
     table.add_column("Card")
 
+    # Define the positions and their meanings
+    positions = [
+        "How you view your partner",
+        "How your partner views you",
+        "Your needs",
+        "Your partners needs",
+        "Current state of relationship",
+        "The path you would like your relationship to follow",
+        "The path your partner would like to see your relationship follow",
+        "Aspects of your relationship to consider",
+        "Question outcome (if theres a question)"
+    ]
+
     for i, position in enumerate(positions):
-        table.add_row(f"{position + ':':<30}", cards[i])  # Left-align the position label with padding
+        if i < len(cards):
+            table.add_row(f"{position}:", cards[i])
+        else:
+            table.add_row(f"{position}:", "No card provided")
 
     console.print(table)
-
-    # Use f-strings to create the prompt
-    prompt = f"Celtic Cross Tarot Spread Reading:\n\n"
     
-
-    for i, position in enumerate(positions):
-        prompt += f"\n{position}: {cards[i]}"  # Newline before each position label
-  
+    # Use f-strings to create the prompt
     card_list = ', '.join(cards)
-    prompt += f"""\n
+    prompt = f"""\n
     Provide insights and guidance based on these cards in the tarot world. The cards are """ + card_list + """.
-    Please use the rider-waite interpretation of the spreads.
+    Please use the rider-waite interpretation of the spreads. This is the relationship spread.
     In addition, please provide a summary and one thing to be grateful for according to the cards.
     """
-
+    
     try:
         # Generate text
         completion = palm.generate_text(
             model=model,
             prompt=prompt,
-            temperature=0.9,  # You can adjust the temperature for more varied responses
+            temperature=0.9,
             max_output_tokens=10000,
         )
         
         console.print()
-        print("\n Celtic Cross Tarot Reading:\n")
-        #print(completion.result)
-
-        text = Markdown(completion.result)
-        console.print(text)
+        console.print("\n[bold magenta]Relationship Tarot Reading:[/bold magenta]")
+        console.print()
+        
+        # Format the generated text as Markdown style
+        markdown_output = Markdown(completion.result)
+        console.print(markdown_output)
 
     except Exception as e:
-        print(f"Error: {str(e)}")
+        console.print(f"Error: {str(e)}")
 
 if __name__ == "__main__":
-    
-    console = Console()
-    console.print("\nCeltic Cross Layout:\n")
-    console.print("        ---                   ---- ")
-    console.print("       | 3 |                 | 10 |")
-    console.print("        ---                   ---- ")
-    console.print("  ---   ---    ---    ---     ---  ")
-    console.print(" | 5 | | 1 |--| 2 |  | 6 |   | 9 | ")
-    console.print("  ---   ---    ---    ---     ---  ")
-    console.print("        ---                   ---  ")
-    console.print("       | 4 |                 | 8 | ")
-    console.print("        ---                   ---  ")
-    console.print("                              ---  ")
-    console.print("                             | 7 | ")
-    console.print("                              ---  ")
-    console.print("Remember the two is placed sideways on top of the one")
 
-    # Check if the user wants to generate random tarot cards
+    console = Console()
+    console.print("\n[bold magenta]The Relationship Spread Layout:[/bold magenta]\n")
+    console.print("         ---   ")
+    console.print("        | 9 |  ")
+    console.print("         ---   ")
+    console.print("   ---   ---   ---   ---    ")
+    console.print("  | 5 | | 6 | | 7 | | 8 |   ")
+    console.print("   ---   ---   ---   ---    ")
+    console.print("         ---   ")
+    console.print("        | 4 |  ")
+    console.print("         ---   ")
+    console.print("         ---   ")
+    console.print("        | 3 |  ")
+    console.print("         ---   ")
+    console.print("         ---   ")
+    console.print("        | 2 |  ")
+    console.print("         ---   ")
+    console.print("         ---   ")
+    console.print("        | 1 |  ")
+    console.print("         ---   ")
+
+    # Check if the user wants to generate random cards or enter their own
+    print()
     choice = input("Do you want to generate random tarot cards (y/n)? ").strip().lower()
+    console = Console()
     
     if choice == 'y':
-        num_cards = 10  # You can change this to the number of cards you want
+        num_cards = 9  # Nine cards for The Relationship Spread
         random_cards = generate_random_tarot_cards(num_cards)
-        print(f"Randomly generated tarot cards: {', '.join(random_cards)}")
-        generate_celtic_cross_reading(random_cards)
+        console.print(f"Randomly generated tarot cards: {', '.join(random_cards)}")
+        generate_relationship_tarot_reading(random_cards)
     else:
-        generate_celtic_cross_reading([])
+        user_cards = input("Enter your seven tarot cards (comma-separated): ").strip().split(',')
+        generate_relationship_tarot_reading(user_cards)
+

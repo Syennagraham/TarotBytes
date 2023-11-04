@@ -74,8 +74,9 @@ def generate_tarot_reading(cards):
     
     # Use f-strings to create the prompt
     card_list = ', '.join(cards)
-    prompt = """\n
-    Provide insights and guidance based on these cards in the tarot world. 
+    prompt = f"""\n
+    Provide insights and guidance based on these cards in the tarot world. The cards are """ + card_list + """.
+    Please use the rider-waite interpretation of the spreads. This is the three-card spread
     In addition, please provide a summary and one thing to be grateful for according to the cards.
     """
     
